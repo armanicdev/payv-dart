@@ -28,9 +28,27 @@ class PostTable {
     required this.customNames,
   });
 
-  static PostTable parse(ByteReader r) {
+  /// Parses the table [r] is positioned at.
+  ///
+  /// [tableLength] is the length the SFNT directory records for `post`. Pass it:
+  /// the reader spans the whole file, so without the record length a 2.0 version
+  /// word over a 32-byte body reads its glyph-name index — and then its name
+  /// strings — out of whatever table follows, and the font comes back with
+  /// fabricated glyph names. `OpenTypeFont` passes it.
+  static PostTable parse(ByteReader r, {int? tableLength}) {
     final base = r.position;
     if (!r.canRead(base, 32)) {
+      throw const FontFormatException(
+        'post is shorter than its 32-byte header',
+      );
+    }
+    final toFileEnd = r.length - base;
+    final end =
+        base +
+        (tableLength == null || tableLength > toFileEnd
+            ? toFileEnd
+            : tableLength);
+    if (end - base < 32) {
       throw const FontFormatException(
         'post is shorter than its 32-byte header',
       );
@@ -41,11 +59,11 @@ class PostTable {
     var customNames = const <String>[];
 
     if (version == 0x00020000) {
-      final result = _parseVersion2(r, base);
+      final result = _parseVersion2(r, base, end);
       glyphNameIndex = result.$1;
       customNames = result.$2;
     } else if (version == 0x00025000) {
-      glyphNameIndex = _parseVersion25(r, base);
+      glyphNameIndex = _parseVersion25(r, base, end);
     }
 
     return PostTable._(
@@ -123,16 +141,21 @@ class PostTable {
   /// Version 2.0: a per-glyph index followed by a run of Pascal strings.
   ///
   /// The string run has no count of its own — it is read until the table ends.
-  /// The table end is not knowable from this reader (it shares the whole file
-  /// buffer), so the loop is bounded by the highest custom index the glyph
-  /// array actually references. That is a tighter bound than the file, and it
-  /// stops the parser from swallowing the next table as glyph names.
-  static (Uint16List, List<String>) _parseVersion2(ByteReader r, int base) {
-    if (!r.canRead(base + 32, 2)) {
+  /// [end] is that end, from the directory's record length, and the loop is ALSO
+  /// bounded by the highest custom index the glyph array references. Two bounds
+  /// because they fail differently: the record length stops the parser from
+  /// swallowing the next table, and the highest-index bound stops it from
+  /// walking a run of padding at the end of a legitimately-sized table.
+  static (Uint16List, List<String>) _parseVersion2(
+    ByteReader r,
+    int base,
+    int end,
+  ) {
+    if (base + 34 > end) {
       throw const FontFormatException('post 2.0 has no glyph count');
     }
     final numberOfGlyphs = r.uint16At(base + 32);
-    if (!r.canRead(base + 34, numberOfGlyphs * 2)) {
+    if (base + 34 + numberOfGlyphs * 2 > end) {
       throw FontFormatException(
         'post 2.0 claims $numberOfGlyphs name indices it does not contain',
       );
@@ -147,9 +170,9 @@ class PostTable {
 
     final names = <String>[];
     var p = base + 34 + numberOfGlyphs * 2;
-    while (names.length <= highest && r.canRead(p, 1)) {
+    while (names.length <= highest && p + 1 <= end) {
       final len = r.uint8At(p);
-      if (!r.canRead(p + 1, len)) break;
+      if (p + 1 + len > end) break;
       // Glyph names are ASCII by specification, so byte-per-character is exact.
       names.add(String.fromCharCodes(r.bytesAt(p + 1, len)));
       p += 1 + len;
@@ -161,10 +184,10 @@ class PostTable {
   /// Version 2.5: deprecated in 1998 and still in the wild. Each glyph carries
   /// a signed delta from its own id into the standard order, which lets a font
   /// permute the Macintosh order without spelling any name out.
-  static Uint16List? _parseVersion25(ByteReader r, int base) {
-    if (!r.canRead(base + 32, 2)) return null;
+  static Uint16List? _parseVersion25(ByteReader r, int base, int end) {
+    if (base + 34 > end) return null;
     final numberOfGlyphs = r.uint16At(base + 32);
-    if (!r.canRead(base + 34, numberOfGlyphs)) return null;
+    if (base + 34 + numberOfGlyphs > end) return null;
 
     final index = Uint16List(numberOfGlyphs);
     for (var g = 0; g < numberOfGlyphs; g++) {

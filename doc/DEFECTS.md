@@ -193,12 +193,8 @@ and the consequence was measured: a payment method of `中文 카드 😀` produ
 **no receipt at all**, which for someone's proof of payment is the worse
 failure. Exposed as `PayvDocument.onMissingGlyph`.
 
----
-
-## OPEN
-
-### O1 — a mid-paragraph `B` (a plain `\n`) corrupts bidi levels
-`lib/src/text/bidi.dart:436`, API at `:144` · **highest product impact**
+### O1 — a mid-paragraph `B` (a plain `\n`) corrupted bidi levels — FIXED
+`lib/src/text/bidi.dart`, API at `Bidi.resolve`
 
 `_buildIsolatingRunSequences` skips a level run beginning with a matched PDI,
 expecting the run holding the initiator to append it. X8 zeroes `validIsolate`
@@ -216,41 +212,92 @@ out text after the space. Even without an isolate, every line after the first
 silently inherits paragraph 1's auto-detected direction:
 `'Hello\n123 سلام'` resolves paragraph 2 as LTR.
 
-**This one bites any multi-line body text**, which is what `textBox` takes. Fix: split at `B` inside `Bidi.resolve` (running P2/P3 per paragraph),
-or make the text engine split before calling. Prefer the former — the trap
-should not be re-armed for every caller.
+**This one bit any multi-line body text**, which is what `textBox` takes.
 
-### O2 — BD13 is tested against post-override types
-`lib/src/text/bidi.dart:436`, `:446`
+Fixed inside `Bidi.resolve` rather than in the text engine, which was the choice
+between the two candidates: splitting in the caller would have left the trap
+armed for the next caller, and this class takes a flat `List<int>` with nowhere
+to express a boundary. `resolve` now runs P1 itself — `_paragraphEnds` splits at
+every `B`, each paragraph resolves with its own P2/P3, and run indices are mapped
+back into global coordinates so a caller's slices still line up. `CR LF` counts
+as one separator. `BidiResult.paragraphs` exposes the split, because
+`'Hello\n سلام'` has no single base direction and a caller that aligns text needs
+to know that. Pinned by `test/text/bidi_paragraph_test.dart`, including the
+original `LRI B RLE L PDF PDI R` reproduction and a 300k-sample sweep for the
+strong-R-at-even / strong-L-at-odd invariant.
+
+### O2 — BD13 was tested against post-override types — FIXED
+`lib/src/text/bidi.dart`, `_buildIsolatingRunSequences`
 
 `isIsolateInitiator(types[last])` and `types[first] == pdi` read the array X6
-already rewrote, so an initiator inside an LRO/RLO scope never links to its
-matching PDI's run. Only reachable together with O1, which masks it — but both
-checks read the wrong array and should use the pre-W1 class.
+already rewrote, so an initiator inside an LRO/RLO scope never linked to its
+matching PDI's run, and the two halves of the isolate then resolved against
+different sos/eos. Only reachable together with O1, which masked it.
 
-### O3 — `OS/2` version-tail guard bounds against the file, not the table
-`lib/src/font/tables/os2.dart:70-72`
+Fixed by reading `initialTypes` at both sites. BD13 is structural — it links a
+character to the one that matches it, which is a property of what the character
+IS, not of what an enclosing RLO resolved it to.
+
+### O3 — `OS/2` version-tail guard bounded against the file, not the table — FIXED
+`lib/src/font/tables/os2.dart`, `lib/src/font/open_type_font.dart`
 
 `ByteReader.canRead` bounds against the whole font, and `OS/2` is never the last
-table, so the `hasV1`/`hasV2`/`hasV5` guards always pass — doing exactly what the
-code's own comment says it exists to prevent. Demonstrated by flipping
-Vazirmatn's version word to 5: `usLowerOpticalPointSize` decodes to **908** from
-bytes belonging to the next table. The same path fabricates `sCapHeight` and
-`sxHeight` for a v2+ header over an 86-byte body, and those two go straight into
-the PDF `/CapHeight` and `/XHeight`. Needs a `tableLength` parameter, which
-`SfntFile.record().length` already knows and `HmtxTable.parse` already takes.
+table, so the `hasV1`/`hasV2`/`hasV5` guards always passed — doing exactly what
+the code's own comment says it exists to prevent. Demonstrated by flipping
+Vazirmatn's version word to 5: `usLowerOpticalPointSize` decoded to **908** from
+bytes belonging to `post`. The same path fabricates `sCapHeight` and `sxHeight`
+for a v2+ header over an 86-byte body, and those two go straight into the PDF
+`/CapHeight` and `/XHeight`.
 
-### O4 — `gvar` deltas are applied to point-matched composite components
-`lib/src/font/tables/glyf.dart:523-524`
+Closed in two halves, and **the second half is the whole lesson**.
+`Os2Table.parse` gained a `tableLength` and `os2_test.dart` proved it worked —
+while `OpenTypeFont.os2` went on calling `_lazy(Tag.os2, Os2Table.parse)` without
+it. The parameter existed, its doc comment said "PASS IT", it was tested, and it
+was never passed, so the fabricated value still reached the descriptor. **Taking
+a bound is not the same as being given one**, and a test that constructs the
+parser by hand cannot tell the difference.
+
+The facade now owns it: `_sized()` looks the length up from the directory record,
+so no caller can forget. `PostTable` and `MaxpTable` had the same defect — `post`
+even carried a comment explaining the workaround it needed *because* the table
+end "is not knowable from this reader" — and both now take the bound. A 2.0
+`post` over a short body read its name index and then its name strings out of the
+following table; a 1.0 `maxp` over a 6-byte body read its twelve outline limits
+the same way.
+
+Pinned by `test/font/table_bounds_test.dart`, which goes **through
+`OpenTypeFont`** and keeps the unbounded call beside each case as the
+reproduction. Mutation-checked: reverting the `os2` wiring turns it red.
+
+### O4 — `gvar` deltas were applied to point-matched composite components — FIXED
+`lib/src/font/tables/glyf.dart`
 
 A component positioned by point matching must stay pinned to its anchor.
 FreeType guards with `if (flags & ARGS_ARE_XY_VALUES)`; HarfBuzz applies the
-translation first so the anchor cancels it; fontTools drops it. payv adds
-`varDx`/`varDy` unconditionally, so an anchored component moves — synthetic repro
-shows `xMax` going to 250 where it must stay 200. Accents drift off their
-attachment point as weight moves, worsening with axis distance. Vazirmatn has no
-point-matched composites, which is why the parity run was clean; Arabic faces
-that build mark-to-base by point anchor, and CJK, do.
+translation first so the anchor cancels it; fontTools drops it. payv added
+`varDx`/`varDy` unconditionally, so an anchored component moved — synthetic repro
+showed `xMax` going to 250 where it must stay 200. Accents drifted off their
+attachment point as weight moved, worsening with axis distance.
+
+Fixed with FreeType's guard: the delta is added only in the `argsAreXy` branch.
+Vazirmatn has no point-matched composites, which is why the parity run was clean
+and why the pin needed a font built for it —
+`test/font/composite_variation_test.dart` constructs a synthetic variable
+composite with one offset component and one point-matched component sharing a
+delta, and asserts the first moves and the second stays put, at several points
+along the axis.
+
+---
+
+## OPEN
+
+Nothing. Every defect found so far is in FIXED above, with what closed it.
+
+That is not a claim the engine is defect-free — it is a claim that this FILE is
+current. What remains genuinely undone is scope rather than defects, and it is
+stated in the two places that own it: the gate coverage gaps G1/G2 below, and the
+unimplemented surface named in the README — no CFF/CFF2 outlines, no
+Indic/Khmer/Myanmar shapers, no PDF/UA structure tree.
 
 ---
 

@@ -2,7 +2,33 @@
 
 ## 0.1.1 — 2026-08-18
 
-Packaging only — no code changes.
+One correctness fix, plus packaging.
+
+### Fixed — a table's version tail could decode out of the NEXT table
+
+`OpenTypeFont` now passes each table's directory-recorded length to the parsers
+whose format has a version tail: `OS/2`, `post` and `maxp`.
+
+`SfntFile.table()` hands back a reader over the whole file positioned at the
+table — deliberately, because an OpenType offset may point backwards into a
+parent and slicing per table would break real fonts. The consequence was that a
+parser's own bounds check asked "does the FILE have room", and for any table that
+is not the last one the answer is always yes. A version word claiming more than
+its body holds was therefore believed, and the tail decoded out of whichever
+table happened to follow.
+
+Measured on Vazirmatn with its `OS/2` version word flipped to 5 over a 96-byte
+body: `usLowerOpticalPointSize` came back as **908**, read out of `post`. On that
+path `sCapHeight` and `sxHeight` are fabricated the same way, and both go
+straight into the PDF `/CapHeight` and `/XHeight`. `post` was reading its glyph
+names — and `maxp` its outline limits — out of the following table under the same
+conditions.
+
+Only malformed or unusually-truncated fonts reach it; a well-formed face is
+unaffected, and no output changes for one. `doc/DEFECTS.md` O3 has the full
+account, including why the parameter existing and being tested was not enough.
+
+### Packaging
 
 - Shortened the pubspec `description` to the 60–180 characters pub.dev's
   analysis asks for.

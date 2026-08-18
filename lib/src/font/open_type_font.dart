@@ -23,6 +23,7 @@ import 'tables/cmap.dart';
 import 'tables/glyf.dart';
 import 'tables/head.dart';
 import 'tables/hmtx.dart';
+import 'tables/maxp.dart';
 import 'tables/name.dart';
 import 'tables/os2.dart';
 import 'tables/post.dart';
@@ -97,14 +98,19 @@ class OpenTypeFont {
 
   // ── optional tables ─────────────────────────────────────────────────────────
 
-  Os2Table? get os2 => _os2 ??= _lazy(Tag.os2, Os2Table.parse);
+  Os2Table? get os2 => _os2 ??= _sized(Tag.os2, Os2Table.parse);
   Os2Table? _os2;
 
   NameTable? get name => _name ??= _lazy(Tag.name, NameTable.parse);
   NameTable? _name;
 
-  PostTable? get post => _post ??= _lazy(Tag.post, PostTable.parse);
+  PostTable? get post => _post ??= _sized(Tag.post, PostTable.parse);
   PostTable? _post;
+
+  /// `maxp`. [numGlyphs] reads its own field directly and does not need this;
+  /// the table is here for a caller that wants the outline limits.
+  MaxpTable? get maxp => _maxp ??= _sized(Tag.maxp, MaxpTable.parse);
+  MaxpTable? _maxp;
 
   /// TrueType outlines. Null for a CFF font — check [SfntFile.hasCffOutlines].
   GlyfTable? get glyf {
@@ -221,5 +227,28 @@ class OpenTypeFont {
   T? _lazy<T>(int tag, T Function(ByteReader) parse) {
     final t = sfnt.table(tag);
     return t == null ? null : parse(t);
+  }
+
+  /// [_lazy] for a table whose format has a VERSION TAIL — a header field that
+  /// says how much more table follows.
+  ///
+  /// Those parsers cannot bound themselves. `SfntFile.table()` hands back a
+  /// reader over the whole file positioned at the table (deliberately: an
+  /// OpenType offset may point backwards into a parent, so slicing per table
+  /// would break real fonts), so a parser's own `canRead` asks "does the FILE
+  /// have room", and a table that is not the last one always says yes. The
+  /// version word is then believed over the body, and the tail decodes out of
+  /// whichever table happens to follow.
+  ///
+  /// The directory already records the true length, and this is the one place
+  /// that knows it, so it passes it rather than leaving each parser to be told
+  /// by every caller. Measured before this existed, on Vazirmatn with its
+  /// `OS/2` version word flipped to 5 over a 96-byte body:
+  /// `usLowerOpticalPointSize` decoded to 908 out of `post`, and `sCapHeight` /
+  /// `sxHeight` go straight into the PDF font descriptor.
+  T? _sized<T>(int tag, T Function(ByteReader, {int? tableLength}) parse) {
+    final rec = sfnt.record(tag);
+    if (rec == null) return null;
+    return parse(sfnt.reader.at(rec.offset), tableLength: rec.length);
   }
 }

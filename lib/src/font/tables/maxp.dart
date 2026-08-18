@@ -28,11 +28,21 @@ class MaxpTable {
     required this.maxComponentDepth,
   });
 
-  static MaxpTable parse(ByteReader r) {
+  /// Parses the table [r] is positioned at.
+  ///
+  /// [tableLength] is the length the SFNT directory records for `maxp`. Pass it:
+  /// without it the 32-byte check below can only bound against the end of the
+  /// FILE, so a 6-byte half-version body carrying a 1.0 version word reads its
+  /// twelve outline limits out of the next table. `OpenTypeFont` passes it.
+  static MaxpTable parse(ByteReader r, {int? tableLength}) {
     final base = r.position;
     if (!r.canRead(base, 6)) {
       throw const FontFormatException('maxp is too short to hold numGlyphs');
     }
+    final toFileEnd = r.length - base;
+    final available = tableLength == null || tableLength > toFileEnd
+        ? toFileEnd
+        : tableLength;
     final version = r.uint32At(base);
     final numGlyphs = r.uint16At(base + 4);
 
@@ -40,7 +50,7 @@ class MaxpTable {
     // other version is read as 1.0, because a font that invents a maxp version
     // still has to put numGlyphs at offset 4 for any rasteriser to load it.
     final isHalf = version == 0x00005000;
-    if (isHalf || !r.canRead(base, 32)) {
+    if (isHalf || available < 32) {
       return MaxpTable._(
         version: version,
         numGlyphs: numGlyphs,

@@ -106,7 +106,10 @@ void main(List<String> args) async {
   // no conditional at the call site — `x` is where the run STARTS.
   y -= 4;
   page.text(
-    'کوردی · payv ٠.١.٠',
+    // Arabic-Indic digits, set as themselves — the specimen's own proof that
+    // `٠.١.١` stays upright and in logical order inside an RTL line. Bump it
+    // with the pubspec; nothing reads the version at runtime.
+    'کوردی · payv ٠.١.١',
     x: right,
     y: y,
     style: TextStyle(
