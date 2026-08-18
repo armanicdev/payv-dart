@@ -1,0 +1,10 @@
+version: 2
+updates:
+  # payv has zero runtime dependencies, so the only thing here that can rot is
+  # the CI workflow's actions. Monthly is enough for that.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "ci"

@@ -1,0 +1,72 @@
+name: Bug report
+description: Something renders, shapes or extracts wrongly.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a **shaping** bug, the single most useful thing you can give us is
+        the string, the font, and what HarfBuzz does with the same pair:
+
+        ```bash
+        hb-shape --font-file=YourFont.ttf 'your string'
+        ```
+
+        Where payv and HarfBuzz disagree, payv is wrong — that output settles it.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What did you get, and what did you expect instead?
+    validations:
+      required: true
+
+  - type: input
+    id: text
+    attributes:
+      label: The text
+      description: The exact string, copy-pasted (not a screenshot).
+      placeholder: پاڵاوتن
+    validations:
+      required: true
+
+  - type: input
+    id: font
+    attributes:
+      label: The font
+      description: Name, version, and where it can be downloaded.
+      placeholder: Vazirmatn 33.003 — https://github.com/rastikerdar/vazirmatn
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: The smallest program that shows it.
+      render: dart
+    validations:
+      required: true
+
+  - type: input
+    id: versions
+    attributes:
+      label: payv and Dart versions
+      placeholder: "payv 0.1.0 · dart --version output"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: target
+    attributes:
+      label: Where it runs
+      multiple: true
+      options:
+        - Dart VM
+        - Flutter (mobile/desktop)
+        - Flutter web / dart2js
+        - dart2wasm
+        - Server
+    validations:
+      required: true
