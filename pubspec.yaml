@@ -1,14 +1,13 @@
 name: payv
 description: >-
-  A pure-Dart OpenType shaping engine and vector PDF writer. Renders Kurdish
-  Sorani, Arabic, Persian and Urdu as real embedded glyph outlines by executing
-  the font's own GSUB/GPOS tables. No FFI, no dependencies.
-version: 0.1.0
+  Pure-Dart OpenType shaping and vector PDF generation. Renders Kurdish Sorani,
+  Arabic, Persian and Urdu by executing the font's own GSUB/GPOS tables. No FFI,
+  no dependencies.
+version: 0.1.1
 
 homepage: https://github.com/armanicdev/payv-dart
 repository: https://github.com/armanicdev/payv-dart
 issue_tracker: https://github.com/armanicdev/payv-dart/issues
-documentation: https://pub.dev/documentation/payv/latest/
 
 topics:
   - pdf

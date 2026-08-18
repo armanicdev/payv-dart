@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.1 — 2026-08-18
+
+Packaging only — no code changes.
+
+- Shortened the pubspec `description` to the 60–180 characters pub.dev's
+  analysis asks for.
+- Dropped the `documentation:` field. pub.dev generates and links the API docs
+  itself; pointing the field back at that same URL only created a link that is
+  unreachable until the docs finish building.
+
 ## 0.1.0 — 2026-08-18
 
 First release.
