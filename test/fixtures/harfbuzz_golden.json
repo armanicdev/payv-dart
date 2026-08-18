@@ -1,0 +1,3824 @@
+{
+ "font": "Vazirmatn.ttf",
+ "unitsPerEm": 2048,
+ "harfbuzzVersion": "14.3.0",
+ "note": "Ground truth for payv's shaper. Regenerate with tool/gen_harfbuzz_corpus.py. Positions are in font design units at the default variation instance.",
+ "cases": [
+  {
+   "id": "re-isol",
+   "text": "ڕ",
+   "note": "U+0695 alone — no presentation form exists",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 804,
+     "name": "uni0695",
+     "cluster": 0,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "re-fina",
+   "text": "بڕ",
+   "note": "ڕ final after a dual-joiner",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 805,
+     "name": "uni0695.fina",
+     "cluster": 1,
+     "xAdvance": 791,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 0,
+     "xAdvance": 604,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "re-init",
+   "text": "ڕب",
+   "note": "ڕ is right-joining, so it must NOT take an initial form",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 682,
+     "name": "uni0628",
+     "cluster": 1,
+     "xAdvance": 1631,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 804,
+     "name": "uni0695",
+     "cluster": 0,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "re-word",
+   "text": "ڕووکار",
+   "note": "ڕ opening a real word",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 5,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 4,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1088,
+     "name": "uniFB90",
+     "cluster": 3,
+     "xAdvance": 909,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 721,
+     "name": "uni0648",
+     "cluster": 2,
+     "xAdvance": 910,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 721,
+     "name": "uni0648",
+     "cluster": 1,
+     "xAdvance": 880,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 804,
+     "name": "uni0695",
+     "cluster": 0,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "lam-v-isol",
+   "text": "ڵ",
+   "note": "U+06B5 alone",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 837,
+     "name": "uni06B5",
+     "cluster": 0,
+     "xAdvance": 1310,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "lam-v-init",
+   "text": "ڵا",
+   "note": "ڵ + alef — the ligature with no codepoint",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 474,
+     "name": "lamVabove_alef.isol",
+     "cluster": 0,
+     "xAdvance": 1164,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "lam-v-medi",
+   "text": "بڵب",
+   "note": "ڵ medial: dual-joining needs all four shapes",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1175,
+     "name": "uniFE90",
+     "cluster": 2,
+     "xAdvance": 1903,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 840,
+     "name": "uni06B5.medi",
+     "cluster": 1,
+     "xAdvance": 651,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 0,
+     "xAdvance": 604,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "lam-v-fina",
+   "text": "بڵ",
+   "note": "ڵ final",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 838,
+     "name": "uni06B5.fina",
+     "cluster": 1,
+     "xAdvance": 1372,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 0,
+     "xAdvance": 604,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "ae-isol",
+   "text": "ە",
+   "note": "U+06D5 alone — the most frequent Sorani vowel",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 895,
+     "name": "uni06D5",
+     "cluster": 0,
+     "xAdvance": 954,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "ae-fina",
+   "text": "نامە",
+   "note": "ە final — reached only through GSUB (uni06D5.fina)",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 896,
+     "name": "uni06D5.fina",
+     "cluster": 3,
+     "xAdvance": 1062,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1266,
+     "name": "uniFEE3",
+     "cluster": 2,
+     "xAdvance": 1092,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 1,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1272,
+     "name": "uniFEE7",
+     "cluster": 0,
+     "xAdvance": 584,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "ye-isol",
+   "text": "ێ",
+   "note": "U+06CE alone",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 871,
+     "name": "uni06CE",
+     "cluster": 0,
+     "xAdvance": 1445,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "ye-init",
+   "text": "ێگ",
+   "note": "ێ initial — uni06CE.init, GSUB-only",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1091,
+     "name": "uniFB93",
+     "cluster": 1,
+     "xAdvance": 1929,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 873,
+     "name": "uni06CE.init",
+     "cluster": 0,
+     "xAdvance": 638,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "ye-medi",
+   "text": "بێب",
+   "note": "ێ medial",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1175,
+     "name": "uniFE90",
+     "cluster": 2,
+     "xAdvance": 1903,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 878,
+     "name": "uni06CE.medi",
+     "cluster": 1,
+     "xAdvance": 743,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 0,
+     "xAdvance": 604,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "ye-fina",
+   "text": "بێ",
+   "note": "ێ final",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 872,
+     "name": "uni06CE.fina",
+     "cluster": 1,
+     "xAdvance": 1329,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1178,
+     "name": "uniFE91.long2",
+     "cluster": 0,
+     "xAdvance": 794,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "lam-alef",
+   "text": "لا",
+   "note": "the standard lam-alef ligature",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1301,
+     "name": "uniFEFB",
+     "cluster": 0,
+     "xAdvance": 1164,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "lam-v-alef",
+   "text": "ڵا",
+   "note": "lamVabove_alef.isol — gid 474, NO codepoint",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 474,
+     "name": "lamVabove_alef.isol",
+     "cluster": 0,
+     "xAdvance": 1164,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "palawtn",
+   "text": "پاڵاوتن",
+   "note": "the canonical failure case: ڵ+ا inside a word",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1271,
+     "name": "uniFEE6",
+     "cluster": 6,
+     "xAdvance": 1477,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1186,
+     "name": "uniFE97",
+     "cluster": 5,
+     "xAdvance": 628,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 721,
+     "name": "uni0648",
+     "cluster": 4,
+     "xAdvance": 910,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 474,
+     "name": "lamVabove_alef.isol",
+     "cluster": 2,
+     "xAdvance": 1164,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 1,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1058,
+     "name": "uniFB58",
+     "cluster": 0,
+     "xAdvance": 638,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "kurdistan",
+   "text": "کوردستان",
+   "note": "produces uniFE98.long — a contextual alternate",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 719,
+     "name": "uni0646",
+     "cluster": 7,
+     "xAdvance": 1386,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 6,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1189,
+     "name": "uniFE98.long",
+     "cluster": 5,
+     "xAdvance": 784,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1218,
+     "name": "uniFEB3",
+     "cluster": 4,
+     "xAdvance": 1615,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 689,
+     "name": "uni062F",
+     "cluster": 3,
+     "xAdvance": 820,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 2,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1280,
+     "name": "uniFEEE",
+     "cluster": 1,
+     "xAdvance": 911,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1088,
+     "name": "uniFB90",
+     "cluster": 0,
+     "xAdvance": 909,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "seen-long",
+   "text": "دستان",
+   "note": "the .long seen form again, shorter context",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 719,
+     "name": "uni0646",
+     "cluster": 4,
+     "xAdvance": 1386,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 3,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1189,
+     "name": "uniFE98.long",
+     "cluster": 2,
+     "xAdvance": 784,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1218,
+     "name": "uniFEB3",
+     "cluster": 1,
+     "xAdvance": 1615,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 689,
+     "name": "uni062F",
+     "cluster": 0,
+     "xAdvance": 980,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "gorini",
+   "text": "گۆڕینی ڕووکار",
+   "note": "change appearance",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 12,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 11,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1088,
+     "name": "uniFB90",
+     "cluster": 10,
+     "xAdvance": 909,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 721,
+     "name": "uni0648",
+     "cluster": 9,
+     "xAdvance": 910,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 721,
+     "name": "uni0648",
+     "cluster": 8,
+     "xAdvance": 880,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 804,
+     "name": "uni0695",
+     "cluster": 7,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 6,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1129,
+     "name": "uniFBFD",
+     "cluster": 5,
+     "xAdvance": 1329,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1273,
+     "name": "uniFEE8",
+     "cluster": 4,
+     "xAdvance": 690,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1130,
+     "name": "uniFBFE",
+     "cluster": 3,
+     "xAdvance": 638,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 804,
+     "name": "uni0695",
+     "cluster": 2,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1119,
+     "name": "uniFBDA",
+     "cluster": 1,
+     "xAdvance": 911,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1092,
+     "name": "uniFB94",
+     "cluster": 0,
+     "xAdvance": 909,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "jmara",
+   "text": "ژمارەی ناسنامە",
+   "note": "identity number",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 896,
+     "name": "uni06D5.fina",
+     "cluster": 13,
+     "xAdvance": 1062,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1266,
+     "name": "uniFEE3",
+     "cluster": 12,
+     "xAdvance": 1092,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 11,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1273,
+     "name": "uniFEE8",
+     "cluster": 10,
+     "xAdvance": 690,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1218,
+     "name": "uniFEB3",
+     "cluster": 9,
+     "xAdvance": 1615,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 8,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1272,
+     "name": "uniFEE7",
+     "cluster": 7,
+     "xAdvance": 584,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 6,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 868,
+     "name": "uni06CC",
+     "cluster": 5,
+     "xAdvance": 1445,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 895,
+     "name": "uni06D5",
+     "cluster": 4,
+     "xAdvance": 794,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 3,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 2,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1266,
+     "name": "uniFEE3",
+     "cluster": 1,
+     "xAdvance": 942,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 808,
+     "name": "uni0698",
+     "cluster": 0,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "rega",
+   "text": "ڕێگە",
+   "note": "three GSUB-only glyphs in four letters",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 896,
+     "name": "uni06D5.fina",
+     "cluster": 3,
+     "xAdvance": 1062,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1093,
+     "name": "uniFB95",
+     "cluster": 2,
+     "xAdvance": 1046,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 873,
+     "name": "uni06CE.init",
+     "cluster": 1,
+     "xAdvance": 638,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 804,
+     "name": "uni0695",
+     "cluster": 0,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "kurdi",
+   "text": "کوردی",
+   "note": "Kurdish",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 868,
+     "name": "uni06CC",
+     "cluster": 4,
+     "xAdvance": 1445,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 689,
+     "name": "uni062F",
+     "cluster": 3,
+     "xAdvance": 820,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 2,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1280,
+     "name": "uniFEEE",
+     "cluster": 1,
+     "xAdvance": 911,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1088,
+     "name": "uniFB90",
+     "cluster": 0,
+     "xAdvance": 909,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "herem",
+   "text": "هەرێمی کوردستان",
+   "note": "Kurdistan Region",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 719,
+     "name": "uni0646",
+     "cluster": 14,
+     "xAdvance": 1386,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 13,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1189,
+     "name": "uniFE98.long",
+     "cluster": 12,
+     "xAdvance": 784,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1218,
+     "name": "uniFEB3",
+     "cluster": 11,
+     "xAdvance": 1615,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 689,
+     "name": "uni062F",
+     "cluster": 10,
+     "xAdvance": 820,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 9,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1280,
+     "name": "uniFEEE",
+     "cluster": 8,
+     "xAdvance": 911,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1088,
+     "name": "uniFB90",
+     "cluster": 7,
+     "xAdvance": 909,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 6,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1129,
+     "name": "uniFBFD",
+     "cluster": 5,
+     "xAdvance": 1329,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1269,
+     "name": "uniFEE4.long",
+     "cluster": 4,
+     "xAdvance": 1204,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 873,
+     "name": "uni06CE.init",
+     "cluster": 3,
+     "xAdvance": 638,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 2,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 896,
+     "name": "uni06D5.fina",
+     "cluster": 1,
+     "xAdvance": 1062,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1276,
+     "name": "uniFEEB",
+     "cluster": 0,
+     "xAdvance": 1423,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "paresga",
+   "text": "پارێزگای هەولێر",
+   "note": "Erbil Governorate",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1213,
+     "name": "uniFEAE",
+     "cluster": 14,
+     "xAdvance": 791,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 879,
+     "name": "uni06CE.medi.long1",
+     "cluster": 13,
+     "xAdvance": 813,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1262,
+     "name": "uniFEDF",
+     "cluster": 12,
+     "xAdvance": 590,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 721,
+     "name": "uni0648",
+     "cluster": 11,
+     "xAdvance": 910,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 896,
+     "name": "uni06D5.fina",
+     "cluster": 10,
+     "xAdvance": 1062,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1276,
+     "name": "uniFEEB",
+     "cluster": 9,
+     "xAdvance": 1423,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 8,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 868,
+     "name": "uni06CC",
+     "cluster": 7,
+     "xAdvance": 1445,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 6,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1092,
+     "name": "uniFB94",
+     "cluster": 5,
+     "xAdvance": 719,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1215,
+     "name": "uniFEB0",
+     "cluster": 4,
+     "xAdvance": 791,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 874,
+     "name": "uni06CE.init.long1",
+     "cluster": 3,
+     "xAdvance": 708,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 2,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 1,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1058,
+     "name": "uniFB58",
+     "cluster": 0,
+     "xAdvance": 638,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "pare",
+   "text": "پارە",
+   "note": "money",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 895,
+     "name": "uni06D5",
+     "cluster": 3,
+     "xAdvance": 794,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 2,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 1,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1058,
+     "name": "uniFB58",
+     "cluster": 0,
+     "xAdvance": 638,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "wesl",
+   "text": "وەسڵی پارەدان",
+   "note": "payment receipt",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 719,
+     "name": "uni0646",
+     "cluster": 12,
+     "xAdvance": 1386,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 681,
+     "name": "uni0627",
+     "cluster": 11,
+     "xAdvance": 475,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 689,
+     "name": "uni062F",
+     "cluster": 10,
+     "xAdvance": 980,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 895,
+     "name": "uni06D5",
+     "cluster": 9,
+     "xAdvance": 794,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 8,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 7,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1058,
+     "name": "uniFB58",
+     "cluster": 6,
+     "xAdvance": 638,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 5,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1129,
+     "name": "uniFBFD",
+     "cluster": 4,
+     "xAdvance": 1329,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 840,
+     "name": "uni06B5.medi",
+     "cluster": 3,
+     "xAdvance": 651,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1218,
+     "name": "uniFEB3",
+     "cluster": 2,
+     "xAdvance": 1615,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 895,
+     "name": "uni06D5",
+     "cluster": 1,
+     "xAdvance": 954,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 721,
+     "name": "uni0648",
+     "cluster": 0,
+     "xAdvance": 910,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "kompanya",
+   "text": "کۆمپانیای کارەبا",
+   "note": "electricity company",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 15,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 14,
+     "xAdvance": 604,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 895,
+     "name": "uni06D5",
+     "cluster": 13,
+     "xAdvance": 794,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 12,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 11,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1088,
+     "name": "uniFB90",
+     "cluster": 10,
+     "xAdvance": 909,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 9,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 868,
+     "name": "uni06CC",
+     "cluster": 8,
+     "xAdvance": 1445,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 7,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1135,
+     "name": "uniFBFF",
+     "cluster": 6,
+     "xAdvance": 743,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1272,
+     "name": "uniFEE7",
+     "cluster": 5,
+     "xAdvance": 584,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 4,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1063,
+     "name": "uniFB59",
+     "cluster": 3,
+     "xAdvance": 743,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1266,
+     "name": "uniFEE3",
+     "cluster": 2,
+     "xAdvance": 1092,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1119,
+     "name": "uniFBDA",
+     "cluster": 1,
+     "xAdvance": 911,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1088,
+     "name": "uniFB90",
+     "cluster": 0,
+     "xAdvance": 909,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "bru",
+   "text": "بڕی پارە",
+   "note": "amount",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 895,
+     "name": "uni06D5",
+     "cluster": 7,
+     "xAdvance": 794,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 6,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 5,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1058,
+     "name": "uniFB58",
+     "cluster": 4,
+     "xAdvance": 638,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 3,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 868,
+     "name": "uni06CC",
+     "cluster": 2,
+     "xAdvance": 1445,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 805,
+     "name": "uni0695.fina",
+     "cluster": 1,
+     "xAdvance": 791,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 0,
+     "xAdvance": 604,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "berwar",
+   "text": "بەرواری پارەدان",
+   "note": "payment date",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 719,
+     "name": "uni0646",
+     "cluster": 14,
+     "xAdvance": 1386,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 681,
+     "name": "uni0627",
+     "cluster": 13,
+     "xAdvance": 475,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 689,
+     "name": "uni062F",
+     "cluster": 12,
+     "xAdvance": 980,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 895,
+     "name": "uni06D5",
+     "cluster": 11,
+     "xAdvance": 794,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 10,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 9,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1058,
+     "name": "uniFB58",
+     "cluster": 8,
+     "xAdvance": 638,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 7,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 868,
+     "name": "uni06CC",
+     "cluster": 6,
+     "xAdvance": 1445,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 5,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 681,
+     "name": "uni0627",
+     "cluster": 4,
+     "xAdvance": 475,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 721,
+     "name": "uni0648",
+     "cluster": 3,
+     "xAdvance": 880,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 2,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 896,
+     "name": "uni06D5.fina",
+     "cluster": 1,
+     "xAdvance": 1062,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 0,
+     "xAdvance": 604,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "nawnishan",
+   "text": "ناونیشان",
+   "note": "address",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 719,
+     "name": "uni0646",
+     "cluster": 7,
+     "xAdvance": 1386,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 6,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1223,
+     "name": "uniFEB8",
+     "cluster": 5,
+     "xAdvance": 1729,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1135,
+     "name": "uniFBFF",
+     "cluster": 4,
+     "xAdvance": 743,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1272,
+     "name": "uniFEE7",
+     "cluster": 3,
+     "xAdvance": 584,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 721,
+     "name": "uni0648",
+     "cluster": 2,
+     "xAdvance": 910,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 1,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1272,
+     "name": "uniFEE7",
+     "cluster": 0,
+     "xAdvance": 584,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "koy",
+   "text": "کۆی گشتی",
+   "note": "total",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1129,
+     "name": "uniFBFD",
+     "cluster": 7,
+     "xAdvance": 1329,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1188,
+     "name": "uniFE98",
+     "cluster": 6,
+     "xAdvance": 734,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1223,
+     "name": "uniFEB8",
+     "cluster": 5,
+     "xAdvance": 1729,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1092,
+     "name": "uniFB94",
+     "cluster": 4,
+     "xAdvance": 909,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 3,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 868,
+     "name": "uni06CC",
+     "cluster": 2,
+     "xAdvance": 1445,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1119,
+     "name": "uniFBDA",
+     "cluster": 1,
+     "xAdvance": 911,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1088,
+     "name": "uniFB90",
+     "cluster": 0,
+     "xAdvance": 909,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "zhmara-wesl",
+   "text": "ژمارەی وەسڵ",
+   "note": "receipt number",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 838,
+     "name": "uni06B5.fina",
+     "cluster": 10,
+     "xAdvance": 1372,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1218,
+     "name": "uniFEB3",
+     "cluster": 9,
+     "xAdvance": 1615,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 895,
+     "name": "uni06D5",
+     "cluster": 8,
+     "xAdvance": 954,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 721,
+     "name": "uni0648",
+     "cluster": 7,
+     "xAdvance": 910,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 6,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 868,
+     "name": "uni06CC",
+     "cluster": 5,
+     "xAdvance": 1445,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 895,
+     "name": "uni06D5",
+     "cluster": 4,
+     "xAdvance": 794,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 3,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 2,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1266,
+     "name": "uniFEE3",
+     "cluster": 1,
+     "xAdvance": 942,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 808,
+     "name": "uni0698",
+     "cluster": 0,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "shadda",
+   "text": "بّب",
+   "note": "shadda between joiners must not break the join",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1175,
+     "name": "uniFE90",
+     "cluster": 2,
+     "xAdvance": 1903,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 732,
+     "name": "uni0651",
+     "cluster": 0,
+     "xAdvance": 0,
+     "yAdvance": 0,
+     "xOffset": -7,
+     "yOffset": 2
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 0,
+     "xAdvance": 604,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "fatha",
+   "text": "بَب",
+   "note": "fatha, likewise",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1175,
+     "name": "uniFE90",
+     "cluster": 2,
+     "xAdvance": 1903,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 728,
+     "name": "uni064E",
+     "cluster": 0,
+     "xAdvance": 0,
+     "yAdvance": 0,
+     "xOffset": 28,
+     "yOffset": -183
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 0,
+     "xAdvance": 604,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "marks-stack",
+   "text": "بِّب",
+   "note": "two stacked marks — exercises mkmk",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1175,
+     "name": "uniFE90",
+     "cluster": 3,
+     "xAdvance": 1903,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 729,
+     "name": "uni064E0651",
+     "cluster": 0,
+     "xAdvance": 0,
+     "yAdvance": 0,
+     "xOffset": -17,
+     "yOffset": -23
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 0,
+     "xAdvance": 604,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "arabic-basic",
+   "text": "العربية",
+   "note": "Arabic",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1183,
+     "name": "uniFE94",
+     "cluster": 6,
+     "xAdvance": 1062,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1290,
+     "name": "uniFEF4",
+     "cluster": 5,
+     "xAdvance": 743,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 4,
+     "xAdvance": 554,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1213,
+     "name": "uniFEAE",
+     "cluster": 3,
+     "xAdvance": 791,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1243,
+     "name": "uniFECC",
+     "cluster": 2,
+     "xAdvance": 1172,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1262,
+     "name": "uniFEDF",
+     "cluster": 1,
+     "xAdvance": 590,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 681,
+     "name": "uni0627",
+     "cluster": 0,
+     "xAdvance": 475,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "arabic-bism",
+   "text": "بسم الله الرحمن الرحيم",
+   "note": "long Arabic with ligatures",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1265,
+     "name": "uniFEE2",
+     "cluster": 21,
+     "xAdvance": 1298,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1290,
+     "name": "uniFEF4",
+     "cluster": 20,
+     "xAdvance": 743,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1202,
+     "name": "uniFEA3",
+     "cluster": 19,
+     "xAdvance": 1212,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1213,
+     "name": "uniFEAE",
+     "cluster": 18,
+     "xAdvance": 791,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1262,
+     "name": "uniFEDF",
+     "cluster": 17,
+     "xAdvance": 590,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 681,
+     "name": "uni0627",
+     "cluster": 16,
+     "xAdvance": 475,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 15,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1271,
+     "name": "uniFEE6",
+     "cluster": 14,
+     "xAdvance": 1477,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1268,
+     "name": "uniFEE4",
+     "cluster": 13,
+     "xAdvance": 1174,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1202,
+     "name": "uniFEA3",
+     "cluster": 12,
+     "xAdvance": 1212,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1213,
+     "name": "uniFEAE",
+     "cluster": 11,
+     "xAdvance": 791,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1262,
+     "name": "uniFEDF",
+     "cluster": 10,
+     "xAdvance": 590,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 681,
+     "name": "uni0627",
+     "cluster": 9,
+     "xAdvance": 475,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 8,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1142,
+     "name": "uniFDF2",
+     "cluster": 4,
+     "xAdvance": 2578,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 3,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1265,
+     "name": "uniFEE2",
+     "cluster": 2,
+     "xAdvance": 1298,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1219,
+     "name": "uniFEB4",
+     "cluster": 1,
+     "xAdvance": 1729,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 0,
+     "xAdvance": 604,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "persian",
+   "text": "فارسی",
+   "note": "Persian",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1129,
+     "name": "uniFBFD",
+     "cluster": 4,
+     "xAdvance": 1329,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1218,
+     "name": "uniFEB3",
+     "cluster": 3,
+     "xAdvance": 1455,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 2,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 1,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1250,
+     "name": "uniFED3",
+     "cluster": 0,
+     "xAdvance": 936,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "persian-sent",
+   "text": "زبان فارسی شیرین است",
+   "note": "a Persian sentence",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1185,
+     "name": "uniFE96",
+     "cluster": 19,
+     "xAdvance": 1903,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1218,
+     "name": "uniFEB3",
+     "cluster": 18,
+     "xAdvance": 1615,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 681,
+     "name": "uni0627",
+     "cluster": 17,
+     "xAdvance": 475,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 16,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1271,
+     "name": "uniFEE6",
+     "cluster": 15,
+     "xAdvance": 1477,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1131,
+     "name": "uniFBFE.long1",
+     "cluster": 14,
+     "xAdvance": 708,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1213,
+     "name": "uniFEAE",
+     "cluster": 13,
+     "xAdvance": 791,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1136,
+     "name": "uniFBFF.long1",
+     "cluster": 12,
+     "xAdvance": 813,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1222,
+     "name": "uniFEB7",
+     "cluster": 11,
+     "xAdvance": 1615,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 10,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1129,
+     "name": "uniFBFD",
+     "cluster": 9,
+     "xAdvance": 1329,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1218,
+     "name": "uniFEB3",
+     "cluster": 8,
+     "xAdvance": 1455,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 7,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 6,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1250,
+     "name": "uniFED3",
+     "cluster": 5,
+     "xAdvance": 936,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 4,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 719,
+     "name": "uni0646",
+     "cluster": 3,
+     "xAdvance": 1386,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 2,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 1,
+     "xAdvance": 554,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 692,
+     "name": "uni0632",
+     "cluster": 0,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "urdu",
+   "text": "اردو",
+   "note": "Urdu",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 721,
+     "name": "uni0648",
+     "cluster": 3,
+     "xAdvance": 910,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 689,
+     "name": "uni062F",
+     "cluster": 2,
+     "xAdvance": 820,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 1,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 681,
+     "name": "uni0627",
+     "cluster": 0,
+     "xAdvance": 475,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "arabic-digits",
+   "text": "٤٥٠٠٠",
+   "note": "Arabic-Indic digits",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 748,
+     "name": "uni0660",
+     "cluster": 4,
+     "xAdvance": 771,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 748,
+     "name": "uni0660",
+     "cluster": 3,
+     "xAdvance": 771,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 748,
+     "name": "uni0660",
+     "cluster": 2,
+     "xAdvance": 771,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 758,
+     "name": "uni0665",
+     "cluster": 1,
+     "xAdvance": 1084,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 756,
+     "name": "uni0664",
+     "cluster": 0,
+     "xAdvance": 949,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "western-digits",
+   "text": "45000",
+   "note": "Western digits",
+   "direction": "ltr",
+   "script": "None",
+   "glyphs": [
+    {
+     "gid": 423,
+     "name": "four",
+     "cluster": 0,
+     "xAdvance": 1151,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 415,
+     "name": "five",
+     "cluster": 1,
+     "xAdvance": 1151,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1327,
+     "name": "zero",
+     "cluster": 2,
+     "xAdvance": 1151,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1327,
+     "name": "zero",
+     "cluster": 3,
+     "xAdvance": 1151,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1327,
+     "name": "zero",
+     "cluster": 4,
+     "xAdvance": 1151,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "mixed-num",
+   "text": "بڕ ٤٥٬٠٠٠ دینار",
+   "note": "an amount in a Kurdish sentence",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 14,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1173,
+     "name": "uniFE8E",
+     "cluster": 13,
+     "xAdvance": 536,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1273,
+     "name": "uniFEE8",
+     "cluster": 12,
+     "xAdvance": 690,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1130,
+     "name": "uniFBFE",
+     "cluster": 11,
+     "xAdvance": 638,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 689,
+     "name": "uni062F",
+     "cluster": 10,
+     "xAdvance": 980,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 9,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 748,
+     "name": "uni0660",
+     "cluster": 8,
+     "xAdvance": 771,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 748,
+     "name": "uni0660",
+     "cluster": 7,
+     "xAdvance": 771,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 748,
+     "name": "uni0660",
+     "cluster": 6,
+     "xAdvance": 771,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 770,
+     "name": "uni066C",
+     "cluster": 5,
+     "xAdvance": 533,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 758,
+     "name": "uni0665",
+     "cluster": 4,
+     "xAdvance": 1084,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 756,
+     "name": "uni0664",
+     "cluster": 3,
+     "xAdvance": 949,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 2,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 805,
+     "name": "uni0695.fina",
+     "cluster": 1,
+     "xAdvance": 791,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 0,
+     "xAdvance": 604,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "mixed-latin",
+   "text": "Payv ژمارە",
+   "note": "Latin inside an RTL run",
+   "direction": "ltr",
+   "script": "Latn",
+   "glyphs": [
+    {
+     "gid": 213,
+     "name": "P",
+     "cluster": 0,
+     "xAdvance": 1281,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 309,
+     "name": "a",
+     "cluster": 1,
+     "xAdvance": 1099,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1316,
+     "name": "y",
+     "cluster": 2,
+     "xAdvance": 969,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1309,
+     "name": "v",
+     "cluster": 3,
+     "xAdvance": 992,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 4,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 808,
+     "name": "uni0698",
+     "cluster": 5,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 718,
+     "name": "uni0645",
+     "cluster": 6,
+     "xAdvance": 1218,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 681,
+     "name": "uni0627",
+     "cluster": 7,
+     "xAdvance": 475,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 8,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 895,
+     "name": "uni06D5",
+     "cluster": 9,
+     "xAdvance": 954,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "mixed-both",
+   "text": "Invoice ژمارەی 2026-0415",
+   "note": "the real invoice header",
+   "direction": "ltr",
+   "script": "Latn",
+   "glyphs": [
+    {
+     "gid": 118,
+     "name": "I",
+     "cluster": 0,
+     "xAdvance": 557,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 493,
+     "name": "n",
+     "cluster": 1,
+     "xAdvance": 1131,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1309,
+     "name": "v",
+     "cluster": 2,
+     "xAdvance": 977,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 510,
+     "name": "o",
+     "cluster": 3,
+     "xAdvance": 1168,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 455,
+     "name": "i",
+     "cluster": 4,
+     "xAdvance": 498,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 352,
+     "name": "c",
+     "cluster": 5,
+     "xAdvance": 1072,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 381,
+     "name": "e",
+     "cluster": 6,
+     "xAdvance": 1086,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 7,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 808,
+     "name": "uni0698",
+     "cluster": 8,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 718,
+     "name": "uni0645",
+     "cluster": 9,
+     "xAdvance": 1218,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 681,
+     "name": "uni0627",
+     "cluster": 10,
+     "xAdvance": 475,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 691,
+     "name": "uni0631",
+     "cluster": 11,
+     "xAdvance": 701,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 895,
+     "name": "uni06D5",
+     "cluster": 12,
+     "xAdvance": 954,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 868,
+     "name": "uni06CC",
+     "cluster": 13,
+     "xAdvance": 1445,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 14,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 613,
+     "name": "two",
+     "cluster": 15,
+     "xAdvance": 1151,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1327,
+     "name": "zero",
+     "cluster": 16,
+     "xAdvance": 1151,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 613,
+     "name": "two",
+     "cluster": 17,
+     "xAdvance": 1151,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 585,
+     "name": "six",
+     "cluster": 18,
+     "xAdvance": 1151,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 451,
+     "name": "hyphen",
+     "cluster": 19,
+     "xAdvance": 955,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1327,
+     "name": "zero",
+     "cluster": 20,
+     "xAdvance": 1151,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 423,
+     "name": "four",
+     "cluster": 21,
+     "xAdvance": 1151,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 521,
+     "name": "one",
+     "cluster": 22,
+     "xAdvance": 1151,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 415,
+     "name": "five",
+     "cluster": 23,
+     "xAdvance": 1151,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "iqd",
+   "text": "٤٥٬٠٠٠ د.ع",
+   "note": "Iraqi dinar",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 699,
+     "name": "uni0639",
+     "cluster": 9,
+     "xAdvance": 1267,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 541,
+     "name": "period",
+     "cluster": 8,
+     "xAdvance": 556,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 689,
+     "name": "uni062F",
+     "cluster": 7,
+     "xAdvance": 980,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 6,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 748,
+     "name": "uni0660",
+     "cluster": 5,
+     "xAdvance": 771,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 748,
+     "name": "uni0660",
+     "cluster": 4,
+     "xAdvance": 771,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 748,
+     "name": "uni0660",
+     "cluster": 3,
+     "xAdvance": 771,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 770,
+     "name": "uni066C",
+     "cluster": 2,
+     "xAdvance": 533,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 758,
+     "name": "uni0665",
+     "cluster": 1,
+     "xAdvance": 1084,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 756,
+     "name": "uni0664",
+     "cluster": 0,
+     "xAdvance": 949,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "zwj-init",
+   "text": "ڵ‍",
+   "note": "ZWJ forces the initial form",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 0,
+     "xAdvance": 0,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 839,
+     "name": "uni06B5.init",
+     "cluster": 0,
+     "xAdvance": 590,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "zwj-medi",
+   "text": "‍ڵ‍",
+   "note": "ZWJ on both sides forces medial",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 1,
+     "xAdvance": 0,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 840,
+     "name": "uni06B5.medi",
+     "cluster": 1,
+     "xAdvance": 651,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 0,
+     "xAdvance": 0,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "zwj-fina",
+   "text": "‍ڵ",
+   "note": "ZWJ forces the final form",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 838,
+     "name": "uni06B5.fina",
+     "cluster": 1,
+     "xAdvance": 1372,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 0,
+     "xAdvance": 0,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "tatweel",
+   "text": "بــب",
+   "note": "tatweel is join-causing",
+   "direction": "rtl",
+   "script": "Arab",
+   "glyphs": [
+    {
+     "gid": 1175,
+     "name": "uniFE90",
+     "cluster": 3,
+     "xAdvance": 1903,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 713,
+     "name": "uni0640",
+     "cluster": 2,
+     "xAdvance": 565,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 713,
+     "name": "uni0640",
+     "cluster": 1,
+     "xAdvance": 565,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1176,
+     "name": "uniFE91",
+     "cluster": 0,
+     "xAdvance": 604,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "latin",
+   "text": "Payment Receipt",
+   "note": "plain Latin, kern applies",
+   "direction": "ltr",
+   "script": "Latn",
+   "glyphs": [
+    {
+     "gid": 213,
+     "name": "P",
+     "cluster": 0,
+     "xAdvance": 1281,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 309,
+     "name": "a",
+     "cluster": 1,
+     "xAdvance": 1099,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 1316,
+     "name": "y",
+     "cluster": 2,
+     "xAdvance": 969,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 487,
+     "name": "m",
+     "cluster": 3,
+     "xAdvance": 1796,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 381,
+     "name": "e",
+     "cluster": 4,
+     "xAdvance": 1086,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 493,
+     "name": "n",
+     "cluster": 5,
+     "xAdvance": 1131,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 597,
+     "name": "t",
+     "cluster": 6,
+     "xAdvance": 670,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 7,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 217,
+     "name": "R",
+     "cluster": 8,
+     "xAdvance": 1262,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 381,
+     "name": "e",
+     "cluster": 9,
+     "xAdvance": 1086,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 352,
+     "name": "c",
+     "cluster": 10,
+     "xAdvance": 1072,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 381,
+     "name": "e",
+     "cluster": 11,
+     "xAdvance": 1086,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 455,
+     "name": "i",
+     "cluster": 12,
+     "xAdvance": 498,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 535,
+     "name": "p",
+     "cluster": 13,
+     "xAdvance": 1150,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 597,
+     "name": "t",
+     "cluster": 14,
+     "xAdvance": 670,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  },
+  {
+   "id": "latin-kern",
+   "text": "AV To Ta We",
+   "note": "classic kerning pairs",
+   "direction": "ltr",
+   "script": "Latn",
+   "glyphs": [
+    {
+     "gid": 2,
+     "name": "A",
+     "cluster": 0,
+     "xAdvance": 1249,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 279,
+     "name": "V",
+     "cluster": 1,
+     "xAdvance": 1304,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 2,
+     "xAdvance": 510,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 237,
+     "name": "T",
+     "cluster": 3,
+     "xAdvance": 1123,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 510,
+     "name": "o",
+     "cluster": 4,
+     "xAdvance": 1168,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 5,
+     "xAdvance": 510,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 237,
+     "name": "T",
+     "cluster": 6,
+     "xAdvance": 1109,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 309,
+     "name": "a",
+     "cluster": 7,
+     "xAdvance": 1114,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 592,
+     "name": "space",
+     "cluster": 8,
+     "xAdvance": 550,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 281,
+     "name": "W",
+     "cluster": 9,
+     "xAdvance": 1786,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    },
+    {
+     "gid": 381,
+     "name": "e",
+     "cluster": 10,
+     "xAdvance": 1086,
+     "yAdvance": 0,
+     "xOffset": 0,
+     "yOffset": 0
+    }
+   ]
+  }
+ ]
+}

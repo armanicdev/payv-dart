@@ -1,0 +1,38 @@
+name: payv
+description: >-
+  A pure-Dart OpenType shaping engine and vector PDF writer. Renders Kurdish
+  Sorani, Arabic, Persian and Urdu as real embedded glyph outlines by executing
+  the font's own GSUB/GPOS tables. No FFI, no dependencies.
+version: 0.1.0
+
+homepage: https://github.com/armanicdev/payv-dart
+repository: https://github.com/armanicdev/payv-dart
+issue_tracker: https://github.com/armanicdev/payv-dart/issues
+documentation: https://pub.dev/documentation/payv/latest/
+
+topics:
+  - pdf
+  - opentype
+  - text-shaping
+  - arabic
+  - kurdish
+
+environment:
+  sdk: ^3.9.0
+
+# ── ZERO RUNTIME DEPENDENCIES — on purpose ────────────────────────────────────
+# This package has to run in a Flutter app, on a server, in a CLI, and on the
+# web, on every ABI, with no native build step. That rules out an FFI binding to
+# HarfBuzz (the usual answer) and rules out a compression package. So the SFNT
+# parser, the OpenType layout engine, the bidi pass and the DEFLATE encoder are
+# all here in Dart. See doc/DESIGN.md for why that is the only shape that works.
+dependencies:
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.0
+
+# The test font is shipped so `dart test` works from a clean clone with no
+# network. Vazirmatn is OFL 1.1, which permits redistribution; its licence
+# travels with it at test/fonts/OFL.txt. It is NOT bundled into your app — it
+# lives under test/, and payv never loads a font you did not hand it.

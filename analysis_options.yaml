@@ -1,0 +1,20 @@
+include: package:lints/recommended.yaml
+
+analyzer:
+  language:
+    strict-casts: true
+    strict-raw-types: true
+  errors:
+    todo: ignore
+
+linter:
+  rules:
+    - prefer_final_locals
+    - unnecessary_parenthesis
+    - directives_ordering
+    # NOT avoid_redundant_argument_values. It reads well on paper and fights the
+    # example: `TextStyle(font: f, size: 12, color: PdfColor.black)` teaches a
+    # reader what the knobs ARE, and the lint would strip the third argument for
+    # matching its default. Several call sites in lib/ also state a default
+    # deliberately, because the value is a correctness decision rather than an
+    # unset parameter, and a comment saying so is worth more than the rule.

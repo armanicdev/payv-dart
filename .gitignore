@@ -1,0 +1,36 @@
+# Dart / pub — https://dart.dev/guides/libraries/private-files
+.dart_tool/
+.packages
+.pub/
+.pub-cache/
+build/
+doc/api/
+
+# A library pins nothing; consumers resolve their own versions.
+pubspec.lock
+
+# Compiler and test artefacts
+*.dill
+*.snapshot
+coverage/
+.test_coverage.dart
+
+# Unicode Character Database — FETCHED, not vendored.
+# tool/gen_unicode_tables.dart reads these and emits
+# lib/src/text/unicode_data.g.dart, which IS checked in, so building this
+# package never touches the network. Re-fetch with tool/fetch_ucd.sh.
+tool/ucd/
+
+# Test and example output
+*.pdf
+!doc/**/*.pdf
+receipt.pdf
+
+# Editors / OS
+.idea/
+.vscode/
+*.iml
+*.swp
+*.bak
+.DS_Store
+Thumbs.db

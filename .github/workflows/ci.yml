@@ -1,0 +1,109 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  # ── Formatting, on a PINNED SDK — deliberately not `stable` ─────────────────
+  # `dart format` output changes between SDK releases. Gating it on a moving
+  # `stable` has two failure modes, and this repo hit the first one on its very
+  # first CI run:
+  #
+  #   1. The maintainer's `dart` is a symlink into Flutter's bundled SDK, which
+  #      lags `stable` by design. Formatting locally with the SDK he actually
+  #      has produced a tree that `stable` then rejected — an unsatisfiable
+  #      loop, not a fixable diff.
+  #   2. Even with matching versions, a formatter tweak in any future Dart
+  #      release turns an untouched repo red for reasons no commit caused.
+  #
+  # So the format gate is pinned, and the pin is the SDK the maintainer runs.
+  # Bump it deliberately when the dev Flutter moves. Reproduce it locally with
+  # exactly the version below and nothing else.
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: "3.10.8"
+      - run: dart pub get
+      - name: Check formatting (pinned SDK 3.10.8)
+        run: dart format --output=none --set-exit-if-changed .
+
+  # ── Correctness, across the SDK range the package CLAIMS to support ────────
+  # pubspec declares `sdk: ^3.9.0`. An untested lower bound is a promise nobody
+  # checked, so the matrix runs the floor as well as current stable.
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        sdk: ["3.9.0", "stable"]
+    name: test (Dart ${{ matrix.sdk }})
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: ${{ matrix.sdk }}
+
+      - run: dart pub get
+
+      - name: Analyze
+        run: dart analyze --fatal-infos --fatal-warnings
+
+      # The two PDF extractors the end-to-end tests shell out to. Without them
+      # those tests self-skip, and "the Kurdish comes back out correctly" would
+      # go unproven in CI — which is the one claim this package exists to make.
+      - name: Install PDF extractors
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils mupdf-tools
+
+      # 15 MB of Unicode conformance data, fetched rather than vendored. Without
+      # it, test/text/bidi_conformance_test.dart skips, and the bidi
+      # implementation is graded only by our own cases.
+      - name: Fetch Unicode Character Database
+        run: tool/fetch_ucd.sh
+
+      - name: Test
+        run: dart test --reporter=expanded
+
+      # A skipped test is a test that did not run. The suite is designed so that
+      # a full CI environment skips NOTHING; if this trips, an extractor or the
+      # UCD fetch failed silently and the run is weaker than it looks.
+      - name: Fail on skipped tests
+        run: |
+          set -o pipefail
+          dart test --reporter=json > /tmp/report.json || true
+          SKIPPED=$(grep -c '"skipped":true' /tmp/report.json || true)
+          if [ "${SKIPPED:-0}" -ne 0 ]; then
+            echo "::error::$SKIPPED test(s) skipped — CI must run the whole suite"
+            grep -o '"name":"[^"]*"' /tmp/report.json | tail -20
+            exit 1
+          fi
+          echo "no skipped tests"
+
+      - name: Example builds a real PDF
+        run: |
+          dart run example/payv_example.dart test/fonts/Vazirmatn.ttf
+          test -s payv_specimen.pdf
+          # The whole thesis, asserted in CI: the Kurdish comes back out of the
+          # PDF exactly — پەیڤ needs uni06D5.fina, which no codepoint reaches —
+          # and no Unicode presentation form appears anywhere.
+          pdftotext payv_specimen.pdf - | grep -q 'پەیڤ'
+          if pdftotext payv_specimen.pdf - | grep -qP '[\x{FB50}-\x{FEFF}]'; then
+            echo "::error::a presentation form reached the output"
+            exit 1
+          fi
+          echo "extraction verified"
+
+  publish-dry-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - run: dart pub get
+      - run: dart pub publish --dry-run
