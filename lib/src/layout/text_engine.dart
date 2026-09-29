@@ -81,6 +81,16 @@ abstract interface class GlyphEncoder {
   /// per glyph.
   void use(PayvFont font, int glyphId, List<int> codepoints);
 
+  /// What [glyphId]'s `ToUnicode` entry says so far: the first non-empty
+  /// [use] wins, so a non-empty answer is final, and an empty one can still
+  /// change until [finishAll].
+  ///
+  /// The engine compares it with each occurrence's own cluster. One glyph can
+  /// stand for more than one text — a font that builds ڕ from ر and a mark
+  /// draws both letters on the same base glyph — and the CMap can hold only
+  /// one of them, so an occurrence that says anything else carries its own.
+  List<int> mappingOf(PayvFont font, int glyphId);
+
   /// The advance the embedded font will DECLARE for [glyphId], in PDF glyph
   /// space (1000 to the em).
   ///
@@ -464,6 +474,18 @@ class TextEngine {
     return out;
   }
 
+  /// Whether [sources] say exactly what [mapping] says, read as
+  /// [GlyphEncoder.use] records them: a codepoint of 0 or below is dropped.
+  static bool _says(List<int> mapping, List<int> sources) {
+    var m = 0;
+    for (final c in sources) {
+      if (c <= 0) continue;
+      if (m >= mapping.length || mapping[m] != c) return false;
+      m++;
+    }
+    return m == mapping.length;
+  }
+
   /// The pen advance of one glyph, in points.
   ///
   /// The single definition of it. Measurement and emission both call this, so a
@@ -573,12 +595,32 @@ class TextEngine {
         // line unconditionally. No byte sequence satisfies both, so it is a
         // choice, and 14 beats 6. See test/pdf/actual_text_test.dart, which
         // pins every cell of that table including the losing one.
+        //
+        // A glyph carrying one codepoint gets a span too when its `ToUnicode`
+        // entry says something else, and a glyph carrying none always gets an
+        // EMPTY one. One glyph can stand for two texts: a font that builds ڕ
+        // from ر and a V mark draws both letters on the same base glyph, as
+        // it does ۆ on و and ێ on ی, and the CMap holds only the first it was
+        // given. Without the span every other occurrence extracts as that
+        // first letter, and which one depends on draw order: `کردن` came back
+        // `کڕدن` from a receipt that drew a ڕ first. A glyph with no text of
+        // its own (the V mark, or any later glyph of a cluster) has no CMap
+        // entry, which MuPDF reads as U+FFFD, and one given text elsewhere
+        // would repeat it; the empty span says it carries nothing. Measured
+        // on Leraw over pdftotext 26.06 and mutool 1.28.2: every letter back,
+        // no U+FFFD. See test/pdf/shared_glyph_test.dart.
         final sources = segment.sources[i];
-        final actualText = sources.length > 1
-            ? String.fromCharCodes(
-                run.direction == TextDirection.rtl ? sources.reversed : sources,
-              )
-            : null;
+        final String? actualText;
+        if (sources.length > 1) {
+          actualText = String.fromCharCodes(
+            run.direction == TextDirection.rtl ? sources.reversed : sources,
+          );
+        } else {
+          final mapping = _fonts.mappingOf(font, info.glyphId);
+          actualText = mapping.isNotEmpty && _says(mapping, sources)
+              ? null
+              : String.fromCharCodes(sources.where((c) => c > 0));
+        }
         if (actualText != null) program.ops.add(_SpanStart(actualText));
 
         final origin = pen + position.xOffset * scale;
@@ -763,6 +805,10 @@ class _CidGlyphEncoder implements GlyphEncoder {
       embedder.fontFor(font).use(glyphId, codepoints: codepoints);
 
   @override
+  List<int> mappingOf(PayvFont font, int glyphId) =>
+      embedder.fontFor(font).codepointsOf(glyphId);
+
+  @override
   int declaredWidth(PayvFont font, int glyphId) =>
       scaleToPdfGlyphSpace(font.raw.advanceWidth(glyphId), font.unitsPerEm);
 
@@ -788,7 +834,7 @@ class _SpanStart {
 
   /// What the glyphs inside the span say, in the order they are DRAWN — see
   /// the measurement in [TextEngine._program] for why that is not logical
-  /// order.
+  /// order. Empty for a glyph that says nothing here.
   final String text;
 }
 

@@ -193,6 +193,27 @@ and the consequence was measured: a payment method of `中文 카드 😀` produ
 **no receipt at all**, which for someone's proof of payment is the worse
 failure. Exposed as `PayvDocument.onMissingGlyph`.
 
+### F8 — a glyph two letters share extracted as whichever was drawn first
+`lib/src/layout/text_engine.dart` (`_program`)
+
+F6 again, from the font's side. Leraw (Rubik with the Sorani letters) builds ڕ
+from the glyph of ر and a V mark, ۆ from و and ێ from ی, so one base glyph
+stands for two letters, and `ToUnicode`, keyed by glyph, keeps only the first
+it was given. Every other occurrence then extracted as that letter, decided by
+draw order: a receipt that drew a ڕ first had `کردن` come back `کڕدن`, and one
+that drew و first had `دۆخ` come back `دوخ`. The V mark carries no codepoint,
+so it had no entry at all, which MuPDF reads as U+FFFD.
+
+Found by an app's receipt test, which extracts every string through pdftotext,
+the day that app moved its Kurdish face to Leraw.
+
+Fixed by giving the occurrence its own text: an `/ActualText` span on any glyph
+whose cluster says something other than its `ToUnicode` entry, and an empty one
+on a glyph that says nothing there. Pinned by `test/pdf/shared_glyph_test.dart`,
+which fails all six of its cases on the engine before the fix: every line back
+through pdftotext in both draw orders, every letter and no U+FFFD through
+mutool, and the spans only where a glyph says something else.
+
 ### O1 — a mid-paragraph `B` (a plain `\n`) corrupted bidi levels — FIXED
 `lib/src/text/bidi.dart`, API at `Bidi.resolve`
 

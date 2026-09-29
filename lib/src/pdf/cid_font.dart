@@ -131,6 +131,15 @@ class EmbeddedFont {
         : List<int>.unmodifiable(codepoints.where((c) => c > 0));
   }
 
+  /// The codepoints [glyphId]'s `ToUnicode` entry carries so far: empty for a
+  /// glyph with none yet, or never passed to [use].
+  ///
+  /// Final once non-empty, since the first non-empty mapping wins. That is
+  /// what lets a caller tell, as it draws a glyph, whether this occurrence
+  /// says something else: the base glyph two letters share (ر and ڕ, in a
+  /// font that builds ڕ from ر and a mark) can only ever say one of them.
+  List<int> codepointsOf(int glyphId) => _codepoints[glyphId] ?? const <int>[];
+
   /// The CID for [originalGlyphId] — its id in the FINAL subset numbering,
   /// which with `/CIDToGIDMap /Identity` is also its glyph index in the
   /// embedded program.

@@ -67,6 +67,10 @@ class _IdentityEncoder implements GlyphEncoder {
   }
 
   @override
+  List<int> mappingOf(PayvFont font, int glyphId) =>
+      sources[glyphId] ?? const <int>[];
+
+  @override
   int declaredWidth(PayvFont font, int glyphId) =>
       scaleToPdfGlyphSpace(font.raw.advanceWidth(glyphId), font.unitsPerEm);
 
