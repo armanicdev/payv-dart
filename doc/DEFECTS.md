@@ -210,9 +210,10 @@ the day that app moved its Kurdish face to Leraw.
 Fixed by giving the occurrence its own text: an `/ActualText` span on any glyph
 whose cluster says something other than its `ToUnicode` entry, and an empty one
 on a glyph that says nothing there. Pinned by `test/pdf/shared_glyph_test.dart`,
-which fails all six of its cases on the engine before the fix: every line back
-through pdftotext in both draw orders, every letter and no U+FFFD through
-mutool, and the spans only where a glyph says something else.
+which fails all five of its cases on the engine before the fix: every line back
+through pdftotext in both draw orders, and the spans only where a glyph says
+something else. MuPDF is measured, not asserted: macOS's build returns every
+letter and no U+FFFD, Ubuntu's ignores `/ActualText` altogether (P4 again).
 
 ### O1 — a mid-paragraph `B` (a plain `\n`) corrupted bidi levels — FIXED
 `lib/src/text/bidi.dart`, API at `Bidi.resolve`

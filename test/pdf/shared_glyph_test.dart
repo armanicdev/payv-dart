@@ -10,9 +10,17 @@
 //
 // An occurrence whose own letter differs from its glyph's entry now carries
 // it in an `/ActualText` span, and a glyph that says nothing, the mark, an
-// empty one. Measured before and after on pdftotext 26.06 and mutool 1.28.2:
-// the letters were wrong in both and MuPDF added a U+FFFD per mark; after,
-// every line comes back whole.
+// empty one. Measured before and after on pdftotext 26.06: the letters were
+// wrong, and after, every line comes back whole.
+//
+// MuPDF is measured and deliberately NOT asserted. macOS's mutool 1.28.2
+// honours the spans and returns every line whole with no U+FFFD; Ubuntu's
+// mupdf-tools ignores `/ActualText` altogether, so it still reads each shared
+// glyph's first entry and a U+FFFD per mark, and no byte in the file can help
+// a reader that skips the span. CI runs Ubuntu and fails on a skipped test,
+// so a MuPDF case could only pin one build's behaviour as universal, the
+// mistake actual_text_test.dart's CORRECTION records. Order and letters are
+// poppler's to prove, exactly, on every platform.
 @Tags(['e2e'])
 library;
 
@@ -36,17 +44,6 @@ const List<String> _lines = <String>[
 
 /// Directional formatting a reader wraps its output in. Not content.
 const Set<int> _bidiMarks = <int>{0x202A, 0x202B, 0x202C, 0x200E, 0x200F};
-
-/// Matches a string holding exactly the characters of [logical], in any
-/// order: MuPDF's line order depends on its build (see
-/// actual_text_test.dart), its letters do not.
-Matcher _sameLetters(String logical) {
-  final want = (logical.runes.toList()..sort()).join(',');
-  return predicate<String>(
-    (actual) => (actual.runes.toList()..sort()).join(',') == want,
-    'holds exactly the characters of "$logical", in any order',
-  );
-}
 
 void main() {
   final fontFile = File('test/fonts/Leraw.ttf');
@@ -77,24 +74,17 @@ void main() {
   String operators(List<String> text) =>
       latin1.decode(build(text, compress: false), allowInvalid: true);
 
-  /// [text] built and read back by [executable], or null when it is not
+  /// [text] built and read back by pdftotext, or null when it is not
   /// installed.
-  List<String>? extract(
-    List<String> text,
-    String executable,
-    List<String> Function(String path) arguments,
-  ) {
+  List<String>? pdftotext(List<String> text) {
     final file = File('${Directory.systemTemp.path}/payv_shared_glyph.pdf')
       ..writeAsBytesSync(build(text));
     try {
-      return _extract(executable, arguments(file.path));
+      return _extract('pdftotext', <String>[file.path, '-']);
     } finally {
       file.deleteSync();
     }
   }
-
-  List<String>? pdftotext(List<String> text) =>
-      extract(text, 'pdftotext', _pdftotext);
 
   group('each letter comes back as itself', () {
     test('pdftotext returns every line in logical order', () {
@@ -119,22 +109,6 @@ void main() {
       }
       expect(first, <String>[a, b]);
       expect(pdftotext(<String>[b, a]), <String>[b, a]);
-    });
-
-    test('mutool returns every letter, and no U+FFFD for a mark', () {
-      final lines = extract(_lines, 'mutool', _mutool);
-      if (lines == null) {
-        markTestSkipped('mutool is not installed');
-        return;
-      }
-      expect(lines, hasLength(_lines.length));
-      for (final (i, expected) in _lines.indexed) {
-        expect(
-          lines[i],
-          _sameLetters(expected),
-          reason: 'line $i lost, gained or substituted a character',
-        );
-      }
     });
   });
 
@@ -176,13 +150,6 @@ void main() {
     });
   });
 }
-
-/// pdftotext's arguments for the file at [path]: its text, to stdout.
-List<String> _pdftotext(String path) => <String>[path, '-'];
-
-/// mutool's: the page drawn as text, to stdout.
-List<String> _mutool(String path) =>
-    <String>['draw', '-F', 'txt', '-o', '-', path];
 
 /// [executable] run over a file, split into non-empty lines with the reader's
 /// directional marks and page breaks removed; null when it cannot run.

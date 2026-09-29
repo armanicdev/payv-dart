@@ -607,8 +607,10 @@ class TextEngine {
         // its own (the V mark, or any later glyph of a cluster) has no CMap
         // entry, which MuPDF reads as U+FFFD, and one given text elsewhere
         // would repeat it; the empty span says it carries nothing. Measured
-        // on Leraw over pdftotext 26.06 and mutool 1.28.2: every letter back,
-        // no U+FFFD. See test/pdf/shared_glyph_test.dart.
+        // on Leraw: pdftotext 26.06 returns every letter, and so does macOS's
+        // mutool 1.28.2, with no U+FFFD; Ubuntu's MuPDF ignores `/ActualText`
+        // and nothing in the file can reach it. See
+        // test/pdf/shared_glyph_test.dart.
         final sources = segment.sources[i];
         final String? actualText;
         if (sources.length > 1) {
