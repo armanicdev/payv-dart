@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.1.2 — 2026-09-29
+
+One text-extraction fix.
+
+### Fixed — a glyph two letters share extracted as whichever was drawn first
+
+A font may draw one letter as another's glyph plus a mark: Leraw builds ڕ from
+ر and a V, as it does ۆ from و and ێ from ی. `ToUnicode` is keyed by glyph, so
+the shared glyph could map back to only one of its letters, and the first one
+drawn won: in a document that drew a ڕ first, every plain ر extracted as ڕ
+(`کردن` came back `کڕدن`). The mark carried no text of its own, which MuPDF
+reads as U+FFFD.
+
+Every occurrence whose text differs from its glyph's `ToUnicode` entry now
+carries its own in an `/ActualText` span, and a glyph with no text of its own
+(a mark drawn as its own glyph, or any later glyph of a cluster) an empty one.
+The output changes only there: a document whose glyphs each say one thing gets
+no new spans. `doc/DEFECTS.md` F8 has the account.
+
 ## 0.1.1 — 2026-08-18
 
 One correctness fix, plus packaging.
